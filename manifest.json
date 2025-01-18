@@ -1,14 +1,14 @@
 {
-    "name": "Hello World",
-    "version": "1.0.0",
-    "description": "",
+    "name": "EnerGPT",
+    "description": "nwhack25 project",
+    "version": "1.0",
     "manifest_version": 3,
-    "author": "me fr",
-    "action":{
+    "action": {
         "default_popup": "index.html",
-        "default_title": "Hi"
+        "default_icon": "icon.png"
     },
     "permissions": [
+        "storage",
         "tabs"
     ]
 }
