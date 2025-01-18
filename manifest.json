@@ -1,0 +1,14 @@
+{
+    "name": "Hello World",
+    "version": "1.0.0",
+    "description": "",
+    "manifest_version": 3,
+    "author": "me fr",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Hi"
+    },
+    "permissions": [
+        "tabs"
+    ]
+}
