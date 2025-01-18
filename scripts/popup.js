@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const incrementButton = document.getElementById('increment');
     const resetButton = document.getElementById('reset');
 
-    const data = JSON.parse("user_data.json");
+    // const data = JSON.parse("user_data.json");
 
     // Initialize counter value
-    let counter = data.queryNumber || 0;
+    let counter = 0;
 
     // Update the counter display
     function updateDisplay() {
