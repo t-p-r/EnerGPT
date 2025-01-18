@@ -1,0 +1,10 @@
+{
+    "name": "SustainGPT",
+    "description": "nwhack25 project",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "icon.png"
+    }
+}
