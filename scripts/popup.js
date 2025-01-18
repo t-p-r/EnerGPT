@@ -24,4 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set initial display
     updateDisplay();
+
+    
 });
