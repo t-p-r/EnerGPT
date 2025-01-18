@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     await initStorageCache;
-    
+
     let counter = storageCache.count;
 
     // Update the counter display
@@ -41,5 +41,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Set initial display
     updateDisplay();
 
-    
+
 });

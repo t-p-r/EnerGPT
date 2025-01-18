@@ -7,14 +7,6 @@
         "default_popup": "index.html",
         "default_icon": "icon.png"
     },
-    "sandbox": {
-        "pages": [
-            "index.html"
-        ]
-    },
-    "content_security_policy": {
-        "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net"
-    },
     "permissions": [
         "storage",
         "tabs"
