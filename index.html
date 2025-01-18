@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +15,12 @@
       height: 300px;
       overflow: hidden;
     }
+
     #counter {
       font-size: 2em;
       margin: 20px 0;
     }
+
     button {
       font-size: 1em;
       padding: 10px;
@@ -30,7 +33,15 @@
     }
   </style>
 </head>
+
 <body>
+  <h2>Simple Counter with persistence (to demonstrate Chrome storage)</h2>
+  <div id="counter">0</div>
+  <button id="increment">Increment</button>
+  <button id="reset">Reset</button>
+  <p id="is_gpt">Is this gpt?</p>
+  <script src="/scripts/popup.js"> </script>
+  <script src="/scripts/determine_gpt.js"> </script>
   <canvas id="myChart"></canvas>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -84,4 +95,5 @@
     });
   </script>
 </body>
+
 </html>
