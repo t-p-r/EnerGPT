@@ -40,8 +40,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Set initial display
     updateDisplay();
-
-
 });
 
 
@@ -55,4 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('weekly-prompts').textContent = weeklyUsage.prompts;
         document.getElementById('weekly-energy').textContent = weeklyUsage.energyUsed.toFixed(2);
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const Trivia = document.getElementById('trivia');
+    Trivia.textContent = "random trivia number" + Math.floor(Math.random() * 10);
 });
