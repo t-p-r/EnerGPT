@@ -10,8 +10,8 @@
   <!-- font stuff -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -20,15 +20,18 @@
   <button id="increment">Increment</button>
   <button id="reset">Reset</button> -->
 
-  <span><h1>Ener</h1><h1 id="gpt-text">GPT</h1></span>
+  <span>
+    <h1>Ener</h1>
+    <h1 id="gpt-text">GPT</h1>
+  </span>
   <div id="stats-container">
     <p>Daily Prompts: <span id="daily-prompts">0</span></p>
-    <p>Daily Energy Used: <span id="daily-energy">0</span> Wh</p>
-    <p>Daily Water Used: <span id="daily-water">0</span> ml</p>
+    <p>Daily <span class="energy-measurement">Energy</span> Used: <span id="daily-energy">0</span> Wh</p>
+    <p>Daily <span class="water-measurement">Water</span> Used: <span id="daily-water">0</span> ml</p>
 
     <p>Weekly Prompts: <span id="weekly-prompts">0</span></p>
-    <p>Weekly Energy Used: <span id="weekly-energy">0</span> Wh</p>
-    <p>Weekly Water Used: <span id="weekly-water">0</span> ml</p>
+    <p>Weekly <span class="energy-measurement">Energy</span> Used: <span id="weekly-energy">0</span> Wh</p>
+    <p>Weekly <span class="water-measurement">Water</span> Used: <span id="weekly-water">0</span> ml</p>
   </div>
 
   <script src="/scripts/popup.js"> </script>
