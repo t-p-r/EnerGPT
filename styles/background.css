@@ -32,7 +32,7 @@ body {
     margin: 0;
     padding: 20px;
     width: 400px;
-    height: 300px;
+    height: fit-content;
     overflow: hidden;
     background-color: var(--dark-green);
 }
@@ -46,12 +46,12 @@ body {
     margin-top: 20px;
     max-width: 700px;
     width: 100%;
-    background-color: var(--alabaster);
+    background-color: var(--dark-green);
 }
 
 
 #stats-container {
-    border: 1px solid var(--coyote);
+    border: 1px solid yellow;
 }
 
 #stats-container > p {

@@ -1,46 +1,87 @@
+const COLORS = {
+    lapisLazuli: 'rgba(13, 95, 150, 1)',
+    coyote: 'rgba(111, 98, 73, 1)',
+    jade: 'rgba(33, 171, 114, 1)',
+    alabaster: 'rgba(239, 231, 218, 1)',
+    darkGreen: 'rgba(0, 38, 38, 1)',
+};
+
 const ctx = document.getElementById('myChart').getContext('2d');
 
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Sun' ,'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'ChatGPT Queries',
+            data: [12, 19, 3, 5, 2, 3, 4],
             borderWidth: 1,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                COLORS.lapisLazuli,
+                COLORS.lapisLazuli,
+                COLORS.lapisLazuli,
+                COLORS.lapisLazuli,
+                COLORS.lapisLazuli,
+                COLORS.lapisLazuli,
+                COLORS.lapisLazuli
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ]
+                'rgba(0, 0, 0, 0)',
+                'rgba(0, 0, 0, 0)',
+                'rgba(0, 0, 0, 0)',
+                'rgba(0, 0, 0, 0)',
+                'rgba(0, 0, 0, 0)',
+                'rgba(0, 0, 0, 0)',
+                'rgba(0, 0, 0, 0)',
+            ],
+            borderRadius: 10,
+            barThickness: 30
         }]
     },
     options: {
         plugins: {
             title: {
                 display: true, // Enables the title
-                text: 'Votes by Color', // Title text
+                text: 'Your Consumption', // Title text
                 font: {
+                    family: "Space Mono",
                     size: 18, // Title font size
                     weight: 'bold' // Title font weight
-                }
-            }
+                },
+                color: COLORS.alabaster
+            },
+            legend: {
+                display: false
+            },
         },
         scales: {
+            x: {
+                ticks: {
+                    font: {
+                        family: "'Roboto', sans-serif",
+                        size: 12
+                    },
+                    color: COLORS.alabaster
+                },
+                title: {
+                    display: false,
+                },
+                grid: {
+                    display: false
+                }
+            },
             y: {
-                beginAtZero: true
+                ticks: {
+                    display: false
+                },
+                title: {
+                    display: false
+                },
+                grid: {
+                    display: false
+                }
             }
         }
-    }
+    },
+    backgroundColor: COLORS.alabaster
 });
