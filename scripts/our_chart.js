@@ -54,13 +54,13 @@ new Chart(ctx, {
         plugins: {
             title: {
                 display: true, // Enables the title
-                text: 'Votes by Color', // Title text
+                text: 'Your Consumption', // Title text
                 font: {
                     family: "Space Mono",
                     size: 18, // Title font size
                     weight: 'bold' // Title font weight
                 },
-                color: COLORS.alabaster
+                color: COLORS.jade
             },
             legend: {
                 display: false
@@ -70,7 +70,7 @@ new Chart(ctx, {
             x: {
                 ticks: {
                     font: {
-                        family: "'Roboto', sans-serif",
+                        family: "'Space Mono', sans-serif",
                         size: 12
                     },
                     color: COLORS.alabaster
@@ -80,18 +80,23 @@ new Chart(ctx, {
                 },
                 grid: {
                     display: false
-                }
+                },
             },
             y: {
                 ticks: {
-                    display: false
+                    font: {
+                        family: "'Space Mono', sans-serif",
+                        size: 12
+                    },
                 },
                 title: {
                     display: false
                 },
                 grid: {
                     display: false
-                }
+                },
+                borderColor: COLORS.alabaster,
+                borderWidth: 2
             }
         }
     },
