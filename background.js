@@ -1,11 +1,6 @@
 // background.js
 
 // Keep track of daily usage
-let dailyUsage = {
-    prompts: 0,
-    energyUsed: 0,
-    waterUsed: 0,
-  };
   
   // Base consumption per prompt (example values)
   const energyPerPrompt = {
@@ -57,37 +52,49 @@ let dailyUsage = {
   chrome.webRequest.onBeforeRequest.addListener(
     function (details) {
       if (details.method === "POST") {
-        // Increment usage
-        // Optionally parse model from the request body
-        const model = extractModelFromRequestBody(details.requestBody);
-        dailyUsage.prompts++;
-        dailyUsage.energyUsed += energyPerPrompt[model] || energyPerPrompt["gpt-4"];
-        dailyUsage.waterUsed += waterPerPrompt[model] || waterPerPrompt["gpt-4"];
+        // Retrieve current usage data from chrome.storage.local
+        chrome.storage.local.get(['dailyUsage', 'weeklyUsage'], (data) => {
+          let dailyUsage = data.dailyUsage || { prompts: 0, energyUsed: 0, waterUsed: 0 };
+          let weeklyUsage = data.weeklyUsage || { prompts: 0, energyUsed: 0, waterUsed: 0 };
   
-        console.log("Detected conversation POST. Updated daily usage:", dailyUsage);
+          // Increment daily usage
+          const model = extractModelFromRequestBody(details.requestBody);
+          dailyUsage.prompts++;
+          dailyUsage.energyUsed += energyPerPrompt[model] || energyPerPrompt["gpt-4"];
+          dailyUsage.waterUsed += waterPerPrompt[model] || waterPerPrompt["gpt-4"];
   
-        // Save to storage
-        chrome.storage.local.set({ dailyUsage }, () => {
-          console.log("Usage saved to Chrome storage:", dailyUsage);
+          // Increment weekly usage
+          weeklyUsage.prompts++;
+          weeklyUsage.energyUsed += energyPerPrompt[model] || energyPerPrompt["gpt-4"];
+          weeklyUsage.waterUsed += waterPerPrompt[model] || waterPerPrompt["gpt-4"];
+  
+          // Save updated usage back to chrome.storage.local
+          chrome.storage.local.set({ dailyUsage, weeklyUsage }, () => {
+            console.log("Usage saved to Chrome storage:", dailyUsage, weeklyUsage);
+          });
         });
       }
     },
-    // Filter: only watch requests to ChatGPT’s conversation endpoint
     {
-      urls: ["*://chatgpt.com/backend-api/conversation*"], 
+      urls: ["*://chatgpt.com/backend-api/conversation*"], // Filter: only watch requests to ChatGPT’s conversation endpoint
     },
-    // ExtraInfoSpec: so we can read request body
     ["requestBody"]
   );
   
-  // Optional: Example alarm-based reset of daily usage 
-  chrome.alarms.create("resetDailyUsage", { when: Date.now(), periodInMinutes: 1440 });
-  chrome.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name === "resetDailyUsage") {
-      dailyUsage = { prompts: 0, energyUsed: 0, waterUsed: 0 };
-      chrome.storage.local.set({ dailyUsage });
-    }
+  // Ensure data is initialized when the background script starts
+  chrome.runtime.onInstalled.addListener(() => {
+    chrome.storage.local.get(['dailyUsage', 'weeklyUsage'], (data) => {
+        if (!data.dailyUsage) {
+            // Initialize daily usage if it doesn't exist
+            chrome.storage.local.set({ dailyUsage: { prompts: 0, energyUsed: 0, waterUsed: 0 } });
+        }
+        if (!data.weeklyUsage) {
+            // Initialize weekly usage if it doesn't exist
+            chrome.storage.local.set({ weeklyUsage: { prompts: 0, energyUsed: 0, waterUsed: 0 } });
+        }
+    });
   });
+
   
   // Example storage change listener to track usage over time in 'weeklyUsage', etc.
   chrome.storage.onChanged.addListener((changes, namespace) => {
