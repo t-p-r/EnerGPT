@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalWeeklyWater = weeklyUsage.reduce((sum, day) => sum + (day.waterUsed || 0), 0);
 
         // Display weekly usage (totals for the 7 days)
-        document.getElementById('weekly-prompts').textContent = totalWeeklyPrompts;
+        document.getElementById('weekly-prompts').textContent = totalWeeklyPrompts || 0;
         document.getElementById('weekly-energy').textContent = (totalWeeklyEnergy || 0).toFixed(2);
         document.getElementById('weekly-water').textContent = totalWeeklyWater || 0;
     });
