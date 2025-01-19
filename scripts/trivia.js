@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return "The energy is the daily intake of " + Math.round(dailyUsage.energyUsed * 40) / 100 + " people.";
         }
         function f4() {
-            return "The energy is equivalent to a dog chasing its tail for " + Math.round(dailyUsage.energyUsed * 120) / 100 + "minutes!";
+            return "The energy is equivalent to a dog chasing its tail for " + Math.round(dailyUsage.energyUsed * 120) / 100 + " minutes!";
         }
         function f5() {
             return "The energy is enough to brew " + Math.round(dailyUsage.energyUsed / 60 * 100) / 100 + " cups of coffee.";
