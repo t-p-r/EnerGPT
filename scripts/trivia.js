@@ -32,10 +32,19 @@ document.addEventListener('DOMContentLoaded', () => {
         function f9() {
             return "You can grow " + Math.round(dailyUsage.waterUsed / 12 * 100) / 100 + " blueberries with this amount of water.";
         }
+        function f10() {
+            return "The water is enough to rinse " + Math.round(dailyUsage.waterUsed * 10) / 100 + " coffee teaspoons.";
+        }
+        function f11() {
+            return "This energy can power UBC's Okanagan campus for " + Math.round(dailyUsage.energyUsed / 1.375 * 100) / 100 + " miliseconds.";
+        }
+        function f12() {
+            return "";
+        }
 
-        func_list = [f0, f1, f2, f3, f4, f5, f6, f7, f8, f9];
+        trivia_list = [f2, f3, f4, f5, f6, f7, f8, f9, f10, f11];
 
         const Trivia = document.getElementById('trivia');
-        Trivia.textContent = func_list[Math.floor(Math.random() * func_list.length)]();
+        Trivia.textContent = trivia_list[Math.floor(Math.random() * trivia_list.length)]();
     });
 });
