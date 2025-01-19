@@ -4,8 +4,8 @@ body {
     margin: 0;
     padding: 20px;
     width: 400px;
-    height: 400px;
-    overflow: hidden;
+    height: 250px;
+    overflow:scroll;
 }
 
 button {
