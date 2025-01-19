@@ -7,10 +7,10 @@ const energyPerPrompt = {
 };
 
 const waterPerPrompt = {
-  "gpt-o1": 8,
-  "gpt-o1-mini": 8,
-  "gpt-4": 10,
-  "gpt-4-mini": 10,
+  "gpt-o1": 34,
+  "gpt-o1-mini": 34,
+  "gpt-4": 40,
+  "gpt-4-mini": 40,
 };
 
 // Function to get model from the request body
