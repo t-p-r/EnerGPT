@@ -153,5 +153,5 @@ chrome.storage.local.get(['weeklyUsage'], (result) => {
     });
 
     // Set default selection (prompts)
-    button1.style.backgroundColor = COLORS.lapisLazuli;
+    button1.style.backgroundColor = 'grey';
 });
