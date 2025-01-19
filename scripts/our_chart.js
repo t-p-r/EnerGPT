@@ -1,18 +1,17 @@
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
+const COLORS = {
+    lapisLazuli: 'rgba(13, 95, 150, 1)', // Example color for lapis lazuli
+    jade: 'rgba(33, 171, 114, 1)', // Example color for jade
+    alabaster: 'rgba(239, 231, 218, 1)', // Example color for alabaster
+};
 
     const ctx = document.getElementById('myChart').getContext('2d');
 
     const day_in_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    const td = new Date();
+    const today = new Date();
 
     const day_label = [];
 
-    for (let day = td.getDay() - 6; day <= td.getDay(); day++) {
+    for (let day = today.getDay() - 6; day <= today.getDay(); day++) {
         if (day < 0)
             day_label.push(day_in_the_week[day + 7]);
         else
@@ -37,40 +36,72 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: promptData,
                 borderWidth: 1,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ]
+                    COLORS.lapisLazuli,
+                    COLORS.lapisLazuli,
+                    COLORS.lapisLazuli,
+                    COLORS.lapisLazuli,
+                    COLORS.lapisLazuli,
+                    COLORS.lapisLazuli,
+                    COLORS.lapisLazuli
+                ],  
+                
+                borderColor: 'rgba(0, 0, 0, 0)',
+
+                borderRadius: 10,
+                barThickness: 30
             }]
         },
         options: {
             plugins: {
                 title: {
                     display: true, // Enables the title
-                    text: 'Prompts by day:', // Title text
+                    text: 'Prompts for the last 7 days', // Title text
                     font: {
+                        family: "Space Mono",
                         size: 18, // Title font size
                         weight: 'bold' // Title font weight
-                    }
-                }
+                    },
+                    color: COLORS.alabaster
+                },
+                legend: {
+                    display: false // Hides the legend
+                },
             },
             scales: {
+                x: {
+                    ticks: {
+                        font: {
+                            family: "'Space Mono', sans-serif",
+                            size: 12
+                        },
+                        color: COLORS.alabaster
+                    },
+                    title: {
+                        display: false, // Hide the x-axis title
+                    },
+                    grid: {
+                        display: false // Hide grid lines
+                    },
+                },
                 y: {
-                    beginAtZero: true
+                    ticks: {
+                        font: {
+                            family: "'Space Mono', sans-serif",
+                            size: 12
+                        },
+                        color: COLORS.alabaster // Y-axis ticks color set to alabaster
+                    },
+                    title: {
+                        display: false // Hide the y-axis title
+                    },
+                    grid: {
+                        display: false // Hide grid lines
+                    },
+                    // Y-axis line color
+                    borderColor: COLORS.alabaster, 
+                    borderWidth: 2
                 }
             }
         }
-    });
     });
 });
