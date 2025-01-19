@@ -6,7 +6,7 @@ const COLORS = {
 
 const ctx = document.getElementById('myChart').getContext('2d');
 
-const day_in_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const day_in_the_week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const today = new Date();
 const day_label = [];
 
