@@ -67,9 +67,15 @@ span > h1 {
 }
 
 .energy-measurement {
-    color: var(--jade);
+    color: yellow;
 }
 
 .water-measurement {
     color: var(--lapis-lazuli);
+}
+
+svg {
+    width: 2em;
+    height: 2em;
+    transform: translate(0, 0.5em);
 }
