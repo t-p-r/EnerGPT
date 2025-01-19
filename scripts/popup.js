@@ -42,19 +42,30 @@
 //     updateDisplay();
 // });
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    chrome.storage.local.get(['dailyUsage', 'weeklyUsage'], (data) => {
-        const dailyUsage = data.dailyUsage || { prompts: 0, energyUsed: 0, waterUsed: 0};
-        const weeklyUsage = data.weeklyUsage || { prompts: 0, energyUsed: 0, waterUsed: 0};
-
-        document.getElementById('daily-prompts').textContent = dailyUsage.prompts;
-        document.getElementById('daily-energy').textContent = dailyUsage.energyUsed.toFixed(2);
-        document.getElementById('daily-water').textContent = dailyUsage.waterUsed; 
-
-
-        document.getElementById('weekly-prompts').textContent = weeklyUsage.prompts;
-        document.getElementById('weekly-energy').textContent = weeklyUsage.energyUsed.toFixed(2);
-        document.getElementById('weekly-water').textContent = weeklyUsage.waterUsed;
+document.addEventListener("DOMContentLoaded", () => {
+    // Retrieve data from storage
+    chrome.storage.local.get(["dailyUsage", "weeklyUsage"], (data) => {
+      const dailyUsage = data.dailyUsage || { prompts: 0, energyUsed: 0, waterUsed: 0 };
+      const weeklyUsage = data.weeklyUsage || Array.from({ length: 7 }, () => ({
+        prompts: 0,
+        energyUsed: 0,
+        waterUsed: 0,
+      }));
+  
+      // Display daily usage
+      document.getElementById("daily-prompts").textContent = dailyUsage.prompts;
+      document.getElementById("daily-energy").textContent = dailyUsage.energyUsed.toFixed(2);
+      document.getElementById("daily-water").textContent = dailyUsage.waterUsed.toFixed(2);
+  
+      // Display weekly usage (aggregate data)
+      const totalWeeklyPrompts = weeklyUsage.reduce((sum, day) => sum + (day.prompts || 0), 0);
+      const totalWeeklyEnergy = weeklyUsage.reduce((sum, day) => sum + (day.energyUsed || 0), 0);
+      const totalWeeklyWater = weeklyUsage.reduce((sum, day) => sum + (day.waterUsed || 0), 0);
+  
+      document.getElementById("weekly-prompts").textContent = totalWeeklyPrompts;
+      document.getElementById("weekly-energy").textContent = totalWeeklyEnergy.toFixed(2);
+      document.getElementById("weekly-water").textContent = totalWeeklyWater.toFixed(2);
+  
+      console.log("Weekly Usage Breakdown:", weeklyUsage);
     });
 });

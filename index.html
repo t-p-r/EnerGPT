@@ -4,7 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/background.css">
   <title>Counter</title>
+
+  <!-- font stuff -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css" />
 </head>
 
@@ -14,8 +20,8 @@
   <button id="increment">Increment</button>
   <button id="reset">Reset</button> -->
 
-  <body>
-    <h1>EnerGPT</h1>
+  <span><h1>Ener</h1><h1 id="gpt-text">GPT</h1></span>
+  <div id="stats-container">
     <p>Daily Prompts: <span id="daily-prompts">0</span></p>
     <p>Daily Energy Used: <span id="daily-energy">0</span> Wh</p>
     <p>Daily Water Used: <span id="daily-water">0</span> ml</p>
@@ -23,9 +29,8 @@
     <p>Weekly Prompts: <span id="weekly-prompts">0</span></p>
     <p>Weekly Energy Used: <span id="weekly-energy">0</span> Wh</p>
     <p>Weekly Water Used: <span id="weekly-water">0</span> ml</p>
-  </body>
+  </div>
 
-  <p id="is_gpt">Is this gpt?</p>
   <script src="/scripts/popup.js"> </script>
   <script src="/scripts/determine_gpt.js"> </script>
   <canvas id="myChart"></canvas>
