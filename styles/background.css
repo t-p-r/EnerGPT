@@ -6,7 +6,15 @@
     --dark-green: rgba(0, 38, 38, 1);
 }
 
-p, button, h1, h2, h3, h4, h5, h6, div {
+p,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div {
     color: var(--alabaster);
     font-family: "Space Mono", serif;
     font-weight: 700;
@@ -51,16 +59,35 @@ body {
     background-color: var(--dark-green);
 }
 
-
-#stats-container {
-    border: 1px solid yellow;
+#header {
+    margin-top: -10px;
 }
 
-#stats-container > p {
+#stats-container {
+    margin-top: -10px;
+    border: 1px solid yellow;
+    border-bottom: 0.5px solid yellow;
+}
+
+#stats-container-weekly {
+    border: 1px solid yellow;
+    border-top: 0.5px solid yellow;
+}
+
+#stats-container>p {
     font-size: 1.2em;
 }
 
-span > h1 {
+#trivia-container {
+    margin-top: -10px;
+    margin-bottom: -15px;
+}
+
+#trivia-container>p {
+    font-size: 1.5em;
+}
+
+span>h1 {
     display: inline-block;
 }
 

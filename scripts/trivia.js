@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dailyUsage = data.dailyUsage || { prompts: 0, energyUsed: 0, waterUsed: 0 };
 
         function f0() {
-            return "The energy is enough to charge " + Math.round(dailyUsage.energyUsed * 6.25) / 100 + " phones to 100%.";
+            return "The energy is enough to completely charge " + Math.round(dailyUsage.energyUsed * 6.25) / 100 + " phones.";
         }
         function f1() {
             return "The energy is enough to light a LED bulb for " + Math.round(dailyUsage.energyUsed * 10) / 100 + " hours.";

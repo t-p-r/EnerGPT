@@ -52,7 +52,7 @@ chrome.storage.local.get(['weeklyUsage'], (result) => {
                     text: 'Prompts for the last 7 days', // Title text
                     font: {
                         family: "Space Mono",
-                        size: 18,
+                        size: 13.5,
                         weight: 'bold'
                     },
                     color: COLORS.alabaster
