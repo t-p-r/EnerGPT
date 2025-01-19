@@ -85,11 +85,11 @@ chrome.storage.local.get(['weeklyUsage'], (result) => {
                         },
                         color: COLORS.alabaster
                     },
-                    title: {
-                        display: true,
-                        color: COLORS.alabaster,
-                        text: "# of prompts"
-                    },
+                    // title: {
+                    //     display: true,
+                    //     color: COLORS.alabaster,
+                    //     text: "# of prompts"
+                    // },
                     grid: {
                         display: false
                     },
@@ -117,12 +117,12 @@ chrome.storage.local.get(['weeklyUsage'], (result) => {
         } else if (type === 'water') {
             newData = waterData;
             newColor = COLORS.jade;
-            newLabel = 'Water used for the last 7 days';
+            newLabel = 'Water used for the last 7 days (mL)';
             newAxisLabel = "ml"
         } else if (type === 'energy') {
             newData = energyData;
             newColor = COLORS.red_orange;
-            newLabel = 'Energy used for the last 7 days';
+            newLabel = 'Energy used for the last 7 days (Wh)';
             newAxisLabel = "Wh"
         }
 
