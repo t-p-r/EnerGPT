@@ -2,6 +2,7 @@ const COLORS = {
     lapisLazuli: 'rgba(13, 95, 150, 1)', // Prompts color
     jade: 'rgba(33, 171, 114, 1)', // Water color
     alabaster: 'rgba(239, 231, 218, 1)', // Energy color
+    coyote: 'rgba(111, 98, 73, 1)',
 };
 
 const ctx = document.getElementById('myChart').getContext('2d');
@@ -117,7 +118,7 @@ chrome.storage.local.get(['weeklyUsage'], (result) => {
             newAxisLabel = "ml"
         } else if (type === 'energy') {
             newData = energyData;
-            newColor = COLORS.alabaster;
+            newColor = COLORS.coyote;
             newLabel = 'Energy used for the last 7 days';
             newAxisLabel = "Wh"
         }
@@ -146,7 +147,7 @@ chrome.storage.local.get(['weeklyUsage'], (result) => {
 
     button3.addEventListener('click', () => {
         updateChartData('energy');
-        button3.style.backgroundColor = COLORS.alabaster;
+        button3.style.backgroundColor = COLORS.coyote;
         button1.style.backgroundColor = '';
         button2.style.backgroundColor = '';
     });
