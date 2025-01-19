@@ -32,8 +32,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const Trivia = document.getElementById('trivia');
-    Trivia.textContent = "random trivia number: " + Math.floor(Math.random() * 10);
-});
-
