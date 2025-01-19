@@ -48,3 +48,16 @@ body {
     width: 100%;
     background-color: var(--alabaster);
 }
+
+
+#stats-container {
+    border: 1px solid var(--coyote);
+}
+
+span > h1 {
+    display: inline-block;
+}
+
+#gpt-text {
+    color: var(--jade);
+}
