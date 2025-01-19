@@ -125,7 +125,7 @@ chrome.storage.local.get(['weeklyUsage'], (result) => {
         chart.data.datasets[0].data = newData;
         chart.data.datasets[0].backgroundColor = newColor;
         chart.options.plugins.title.text = newLabel;
-        chart.options.plugins.y.title.text = newAxisLabel;
+        chart.options.scales.y.title.text = newAxisLabel;
         chart.update();
     }
 
