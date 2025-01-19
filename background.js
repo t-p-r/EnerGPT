@@ -102,5 +102,28 @@
       console.log("dailyUsage changed:", changes.dailyUsage.newValue);
       // Could update weekly usage here...
     }
-  });
-  
+  },
+  // Filter: only watch requests to ChatGPT’s conversation endpoint
+  {
+    urls: ["*://chatgpt.com/backend-api/conversation*"],
+  },
+  // ExtraInfoSpec: so we can read request body
+  ["requestBody"]
+);
+
+// Optional: Example alarm-based reset of daily usage 
+chrome.alarms.create("resetDailyUsage", { when: Date.now(), periodInMinutes: 1440 });
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === "resetDailyUsage") {
+    dailyUsage = { prompts: 0, energyUsed: 0, waterUsed: 0 };
+    chrome.storage.local.set({ dailyUsage });
+  }
+});
+
+// Example storage change listener to track usage over time in 'weeklyUsage', etc.
+chrome.storage.onChanged.addListener((changes, namespace) => {
+  if (namespace === "local" && changes.dailyUsage) {
+    console.log("dailyUsage changed:", changes.dailyUsage.newValue);
+    // Could update weekly usage here...
+  }
+});
