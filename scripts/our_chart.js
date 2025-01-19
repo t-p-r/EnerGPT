@@ -54,7 +54,7 @@ new Chart(ctx, {
         plugins: {
             title: {
                 display: true, // Enables the title
-                text: 'Votes by Color', // Title text
+                text: 'Prompts for the last 7 days', // Title text
                 font: {
                     family: "Space Mono",
                     size: 18, // Title font size
