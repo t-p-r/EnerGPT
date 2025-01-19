@@ -54,10 +54,22 @@ body {
     border: 1px solid var(--coyote);
 }
 
+#stats-container > p {
+    font-size: 1.2em;
+}
+
 span > h1 {
     display: inline-block;
 }
 
 #gpt-text {
     color: var(--jade);
+}
+
+.energy-measurement {
+    color: var(--jade);
+}
+
+.water-measurement {
+    color: var(--lapis-lazuli);
 }
