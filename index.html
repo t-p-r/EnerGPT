@@ -1,14 +1,60 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SustainGPT</title>
-    <script src="popup.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      width: 400px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    button {
+      font-size: 1em;
+      padding: 10px;
+      margin: 5px;
+    }
+
+    #counter {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+
+    #myChart {
+      margin-top: 20px;
+      max-width: 700px;
+      width: 100%;
+    }
+  </style>
 </head>
+
 <body>
+  <h2>Simple Counter with persistence (to demonstrate Chrome storage)</h2>
+  <div id="counter">0</div>
+  <button id="increment">Increment</button>
+  <button id="reset">Reset</button>
+
+  <body>
     <h1>SustainGPT</h1>
     <p>Daily Prompts: <span id="daily-prompts">0</span></p>
     <p>Daily Energy Used: <span id="daily-energy">0</span> Wh</p>
     <p>Weekly Prompts: <span id="weekly-prompts">0</span></p>
     <p>Weekly Energy Used: <span id="weekly-energy">0</span> Wh</p>
+  </body>
+
+  <p id="is_gpt">Is this gpt?</p>
+  <script src="/scripts/popup.js"> </script>
+  <script src="/scripts/determine_gpt.js"> </script>
+  <canvas id="myChart"></canvas>
+  <script src="/scripts/chart.js"></script>
+  <script src="/scripts/our_chart.js"></script>
 </body>
+
 </html>
