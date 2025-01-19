@@ -1,29 +1,14 @@
 const COLORS = {
-    lapisLazuli: 'rgba(13, 95, 150, 1)',
-    coyote: 'rgba(111, 98, 73, 1)',
-    jade: 'rgba(33, 171, 114, 1)',
-    alabaster: 'rgba(239, 231, 218, 1)',
-    darkGreen: 'rgba(0, 38, 38, 1)',
+    lapisLazuli: 'rgba(13, 95, 150, 1)', // Example color for lapis lazuli
+    jade: 'rgba(33, 171, 114, 1)', // Example color for jade
+    alabaster: 'rgba(239, 231, 218, 1)', // Example color for alabaster
 };
 
 const ctx = document.getElementById('myChart').getContext('2d');
-
-const day_in_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-const today = new Date();
-
-const day_label = [];
-
-for (let day = today.getDay() - 6; day <= today.getDay(); day++) {
-    if (day < 0)
-        day_label.push(day_in_the_week[day + 7]);
-    else
-        day_label.push(day_in_the_week[day]);
-};
-
-new Chart(ctx, {
+const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Sun' ,'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         datasets: [{
             label: 'ChatGPT Queries',
             data: [12, 19, 3, 5, 2, 3, 4],
@@ -37,15 +22,7 @@ new Chart(ctx, {
                 COLORS.lapisLazuli,
                 COLORS.lapisLazuli
             ],
-            borderColor: [
-                'rgba(0, 0, 0, 0)',
-                'rgba(0, 0, 0, 0)',
-                'rgba(0, 0, 0, 0)',
-                'rgba(0, 0, 0, 0)',
-                'rgba(0, 0, 0, 0)',
-                'rgba(0, 0, 0, 0)',
-                'rgba(0, 0, 0, 0)',
-            ],
+            borderColor: 'rgba(0, 0, 0, 0)', // Transparent border for bars
             borderRadius: 10,
             barThickness: 30
         }]
@@ -60,10 +37,10 @@ new Chart(ctx, {
                     size: 18, // Title font size
                     weight: 'bold' // Title font weight
                 },
-                color: COLORS.jade
+                color: COLORS.alabaster
             },
             legend: {
-                display: false
+                display: false // Hides the legend
             },
         },
         scales: {
@@ -76,10 +53,10 @@ new Chart(ctx, {
                     color: COLORS.alabaster
                 },
                 title: {
-                    display: false,
+                    display: false, // Hide the x-axis title
                 },
                 grid: {
-                    display: false
+                    display: false // Hide grid lines
                 },
             },
             y: {
@@ -88,17 +65,18 @@ new Chart(ctx, {
                         family: "'Space Mono', sans-serif",
                         size: 12
                     },
+                    color: COLORS.alabaster // Y-axis ticks color set to alabaster
                 },
                 title: {
-                    display: false
+                    display: false // Hide the y-axis title
                 },
                 grid: {
-                    display: false
+                    display: false // Hide grid lines
                 },
-                borderColor: COLORS.alabaster,
+                // Y-axis line color
+                borderColor: COLORS.alabaster, 
                 borderWidth: 2
             }
         }
-    },
-    backgroundColor: COLORS.alabaster
+    }
 });
