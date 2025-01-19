@@ -86,7 +86,9 @@ chrome.storage.local.get(['weeklyUsage'], (result) => {
                         color: COLORS.alabaster
                     },
                     title: {
-                        display: false
+                        display: true,
+                        color: COLORS.alabaster,
+                        text: "# of prompts"
                     },
                     grid: {
                         display: false
@@ -111,7 +113,7 @@ chrome.storage.local.get(['weeklyUsage'], (result) => {
             newData = promptData;
             newColor = COLORS.lapisLazuli;
             newLabel = 'Prompts for the last 7 days';
-            newAxisLabel = "";
+            newAxisLabel = "# of prompts";
         } else if (type === 'water') {
             newData = waterData;
             newColor = COLORS.jade;
