@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return "The energy is enough for Google to send " + Math.round(dailyUsage.energyUsed * 100) + " emails!";
         }
         function f7() {
-            return "The water is enough for you to brush your teeth" + Math.round(dailyUsage.waterUsed * 2) / 100 + " times.";
+            return "The water is enough for you to brush your teeth " + Math.round(dailyUsage.waterUsed * 2) / 100 + " times.";
         }
         function f8() {
-            return "The water is enough for you to make" + Math.round(dailyUsage.waterUsed * 5) / 100 + " ice cubes.";
+            return "The water is enough for you to make " + Math.round(dailyUsage.waterUsed * 5) / 100 + " ice cubes.";
         }
         function f9() {
             return "You can grow " + Math.round(dailyUsage.waterUsed / 12 * 100) / 100 + " blueberries with this amount of water.";
