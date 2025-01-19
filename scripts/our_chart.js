@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = document.getElementById('myChart').getContext('2d');
 
     const day_in_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    const today = new Date();
+    const td = new Date();
 
     const day_label = [];
 
-    for (let day = today.getDay() - 6; day <= today.getDay(); day++) {
+    for (let day = td.getDay() - 6; day <= td.getDay(); day++) {
         if (day < 0)
             day_label.push(day_in_the_week[day + 7]);
         else
