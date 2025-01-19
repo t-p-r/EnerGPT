@@ -74,7 +74,7 @@ body {
     border-top: 0.5px solid yellow;
 }
 
-#stats-container>p {
+#stats-container > p, #stats-container-weekly > p {
     font-size: 1.2em;
 }
 
