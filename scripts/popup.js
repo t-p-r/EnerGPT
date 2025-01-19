@@ -1,71 +1,39 @@
-// document.addEventListener('DOMContentLoaded', async () => {
-//     const counterDisplay = document.getElementById('counter');
-//     const incrementButton = document.getElementById('increment');
-//     const resetButton = document.getElementById('reset');
+document.addEventListener('DOMContentLoaded', () => {
+    chrome.storage.local.get(['dailyUsage', 'weeklyUsage'], (data) => {
+        // Ensure daily usage is initialized correctly
+        const dailyUsage = data.dailyUsage || {
+            prompts: 0,
+            energyUsed: 0,
+            waterUsed: 0,
+        };
 
-//     // Where we will expose all the data we retrieve from storage.sync.
-//     const storageCache = { count: 0 };
-//     // Asynchronously retrieve data from storage.sync, then cache it.
-//     const initStorageCache = chrome.storage.sync.get().then((items) => {
-//         // Copy the data retrieved from storage into storageCache.
-//         Object.assign(storageCache, items);
-//     });
+        // Ensure weekly usage is initialized correctly (array with 7 days of data)
+        const weeklyUsage = data.weeklyUsage || Array.from({ length: 7 }, () => ({
+            prompts: 0,
+            energyUsed: 0,
+            waterUsed: 0,
+        }));
 
-//     await initStorageCache;
+        // Display daily usage
+        document.getElementById('daily-prompts').textContent = dailyUsage.prompts;
+        // Ensure toFixed() only runs if energyUsed is a valid number
+        document.getElementById('daily-energy').textContent = (dailyUsage.energyUsed || 0).toFixed(2);
+        document.getElementById('daily-water').textContent = dailyUsage.waterUsed || 0;
 
-//     let counter = storageCache.count;
+        // Calculate the total weekly usage from the last 7 days
+        const totalWeeklyPrompts = weeklyUsage.reduce((sum, day) => sum + (day.prompts || 0), 0);
+        const totalWeeklyEnergy = weeklyUsage.reduce((sum, day) => sum + (day.energyUsed || 0), 0);
+        const totalWeeklyWater = weeklyUsage.reduce((sum, day) => sum + (day.waterUsed || 0), 0);
 
-//     // Update the counter display
-//     function updateDisplay() {
-//         counterDisplay.textContent = counter;
-//     }
-
-//     function saveCount() {
-//         storageCache.count = counter;
-//         chrome.storage.sync.set(storageCache);
-//     }
-
-//     // Event listeners
-//     incrementButton.addEventListener('click', () => {
-//         counter++;
-//         updateDisplay();
-//         saveCount();
-//     });
-
-//     resetButton.addEventListener('click', () => {
-//         counter = 0;
-//         updateDisplay();
-//         saveCount();
-//     });
-
-//     // Set initial display
-//     updateDisplay();
-// });
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Retrieve data from storage
-    chrome.storage.local.get(["dailyUsage", "weeklyUsage"], (data) => {
-      const dailyUsage = data.dailyUsage || { prompts: 0, energyUsed: 0, waterUsed: 0 };
-      const weeklyUsage = data.weeklyUsage || Array.from({ length: 7 }, () => ({
-        prompts: 0,
-        energyUsed: 0,
-        waterUsed: 0,
-      }));
-  
-      // Display daily usage
-      document.getElementById("daily-prompts").textContent = dailyUsage.prompts;
-      document.getElementById("daily-energy").textContent = dailyUsage.energyUsed.toFixed(2);
-      document.getElementById("daily-water").textContent = dailyUsage.waterUsed.toFixed(2);
-  
-      // Display weekly usage (aggregate data)
-      const totalWeeklyPrompts = weeklyUsage.reduce((sum, day) => sum + (day.prompts || 0), 0);
-      const totalWeeklyEnergy = weeklyUsage.reduce((sum, day) => sum + (day.energyUsed || 0), 0);
-      const totalWeeklyWater = weeklyUsage.reduce((sum, day) => sum + (day.waterUsed || 0), 0);
-  
-      document.getElementById("weekly-prompts").textContent = totalWeeklyPrompts;
-      document.getElementById("weekly-energy").textContent = totalWeeklyEnergy.toFixed(2);
-      document.getElementById("weekly-water").textContent = totalWeeklyWater.toFixed(2);
-  
-      console.log("Weekly Usage Breakdown:", weeklyUsage);
+        // Display weekly usage (totals for the 7 days)
+        document.getElementById('weekly-prompts').textContent = totalWeeklyPrompts;
+        document.getElementById('weekly-energy').textContent = (totalWeeklyEnergy || 0).toFixed(2);
+        document.getElementById('weekly-water').textContent = totalWeeklyWater || 0;
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const Trivia = document.getElementById('trivia');
+    Trivia.textContent = "random trivia number: " + Math.floor(Math.random() * 10);
+});
+
