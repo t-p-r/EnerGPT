@@ -3,40 +3,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const dailyUsage = data.dailyUsage || { prompts: 0, energyUsed: 0, waterUsed: 0 };
 
         function f0() {
-            return "The energy is enough to completely charge " + Math.round(dailyUsage.energyUsed * 6.25) / 100 + " phones.";
+            return "That's enough energy to completely charge " + Math.round(dailyUsage.energyUsed * 6.25) / 100 + " phones!";
         }
         function f1() {
-            return "The energy is enough to light a LED bulb for " + Math.round(dailyUsage.energyUsed * 10) / 100 + " hours.";
+            return "That's enough energy to power an LED bulb for " + Math.round(dailyUsage.energyUsed * 10) / 100 + " hours!";
         }
         function f2() {
-            return "The energy is equivalent to a hamster running on a wheel for " + Math.round(dailyUsage.energyUsed * 800) / 100 + " days!";
+            return "A hamster running on a wheel would take " + Math.round(dailyUsage.energyUsed * 800) / 100 + " days to produce that energy!";
         }
         function f3() {
-            return "The energy is the daily intake of " + Math.round(dailyUsage.energyUsed * 40) / 100 + " people.";
+            return "That's equivalent to " + Math.round(dailyUsage.energyUsed * 40) / 100 + " people's daily energy consumption!";
         }
         function f4() {
-            return "The energy is equivalent to a dog chasing its tail for " + Math.round(dailyUsage.energyUsed * 120) / 100 + " minutes!";
+            return "That energy is equivalent to a dog chasing its tail for " + Math.round(dailyUsage.energyUsed * 120) / 100 + " minutes!";
         }
         function f5() {
-            return "The energy is enough to brew " + Math.round(dailyUsage.energyUsed / 60 * 100) / 100 + " cups of coffee.";
+            return "That's enough energy to brew " + Math.round(dailyUsage.energyUsed / 60 * 100) / 100 + " cups of coffee.";
         }
         function f6() {
-            return "The energy is enough for Google to send " + Math.round(dailyUsage.energyUsed * 100) + " emails!";
+            return "That's enough energy to send " + Math.round(dailyUsage.energyUsed * 100) + " emails!";
         }
         function f7() {
-            return "The water is enough for you to brush your teeth " + Math.round(dailyUsage.waterUsed * 2) / 100 + " times.";
+            return "That's enough water for you to brush your teeth " + Math.round(dailyUsage.waterUsed * 2) / 100 + " times!";
         }
         function f8() {
-            return "The water is enough for you to make " + Math.round(dailyUsage.waterUsed * 5) / 100 + " ice cubes.";
+            return "That's enough water to make " + Math.round(dailyUsage.waterUsed * 5) / 100 + " ice cubes!";
         }
         function f9() {
-            return "You can grow " + Math.round(dailyUsage.waterUsed / 12 * 100) / 100 + " blueberries with this amount of water.";
+            return "You can grow " + Math.round(dailyUsage.waterUsed / 12 * 100) / 100 + " blueberries with that amount of water!";
         }
         function f10() {
-            return "The water is enough to rinse " + Math.round(dailyUsage.waterUsed * 10) / 100 + " coffee teaspoons.";
+            return "That's enough water to rinse " + Math.round(dailyUsage.waterUsed * 10) / 100 + " spoons!";
         }
         function f11() {
-            return "This energy can power UBC's Okanagan campus for " + Math.round(dailyUsage.energyUsed / 1.375 * 100) / 100 + " miliseconds.";
+            return "This energy can power UBC's Okanagan campus for " + Math.round(dailyUsage.energyUsed / 1.375 * 100) / 100 + " miliseconds!";
         }
         function f12() {
             return "";
