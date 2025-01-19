@@ -10,11 +10,15 @@ let dailyUsage = {
   // Base consumption per prompt (example values)
   const energyPerPrompt = {
     "gpt-o1": 2.3,
+    "gpt-o1-mini": 2.3,
     "gpt-4": 2.9,
+    "gpt-4-mini": 2.9,
   };
   const waterPerPrompt = {
     "gpt-o1": 8,
+    "gpt-o1-mini": 8,
     "gpt-4": 10,
+    "gpt-4-mini": 10,
   };
   
   // Function to get model from the request body (if needed)
