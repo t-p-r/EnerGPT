@@ -8,6 +8,18 @@ const COLORS = {
 
 const ctx = document.getElementById('myChart').getContext('2d');
 
+const day_in_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+const today = new Date();
+
+const day_label = [];
+
+for (let day = today.getDay() - 6; day <= today.getDay(); day++) {
+    if (day < 0)
+        day_label.push(day_in_the_week[day + 7]);
+    else
+        day_label.push(day_in_the_week[day]);
+};
+
 new Chart(ctx, {
     type: 'bar',
     data: {
@@ -42,7 +54,7 @@ new Chart(ctx, {
         plugins: {
             title: {
                 display: true, // Enables the title
-                text: 'Your Consumption', // Title text
+                text: 'Votes by Color', // Title text
                 font: {
                     family: "Space Mono",
                     size: 18, // Title font size
