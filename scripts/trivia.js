@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return "That is the daily energy intake of " + dailyUsage.energyUsed / 2.5 + " people!";
         }
 
-        func_list = [f0, f1, f2, f3]
+        func_list = [f0, f1, f2, f3];
 
         const Trivia = document.getElementById('trivia');
         Trivia.textContent = func_list[Math.floor(Math.random() * func_list.length)]();
