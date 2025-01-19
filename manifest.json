@@ -1,10 +1,25 @@
 {
-    "name": "SustainGPT",
+    "name": "EnerGPT",
     "description": "nwhack25 project",
     "version": "1.0",
     "manifest_version": 3,
+    "permissions": [
+        "activeTab",
+        "storage",
+        "scripting",
+        "webRequest",
+        "alarms"
+    ],
+    "host_permissions": [
+        "https://google.com/*"
+    ],
     "action": {
         "default_popup": "index.html",
         "default_icon": "icon.png"
+    },
+    "background": {
+    "service_worker": "background.js",
+    "type": "module"
     }
+
 }
