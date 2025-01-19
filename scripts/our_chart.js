@@ -3,19 +3,19 @@ const ctx = document.getElementById('myChart').getContext('2d');
 const day_in_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 const today = new Date();
 
-const label = [];
+const day_label = [];
 
 for (let day = today.getDay() - 6; day <= today.getDay(); day++) {
     if (day < 0)
-        label.push(day_in_the_week[day + 7]);
+        day_label.push(day_in_the_week[day + 7]);
     else
-        label.push(day_in_the_week[day]);
+        day_label.push(day_in_the_week[day]);
 };
 
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: label,
+        labels: day_label,
         datasets: [{
             label: 'what you think it is',
             data: [12, 19, 3, 5, 2, 3, 10],
