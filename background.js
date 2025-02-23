@@ -13,6 +13,7 @@ const waterPerPrompt = {
   "gpt-4-mini": 40,
 };
 
+const INIT_URL = "https://chatgpt.com/backend-api/conversation/init";
 const CONVERSATION_URL = "https://chatgpt.com/backend-api/conversation";
 
 // Function to get model from the request body
