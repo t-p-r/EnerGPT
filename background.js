@@ -13,6 +13,8 @@ const waterPerPrompt = {
   "gpt-4-mini": 40,
 };
 
+const CONVERSATION_URL = "https://chatgpt.com/backend-api/conversation";
+
 // Function to get model from the request body
 function extractModelFromRequestBody(requestBody) {
   if (!requestBody || !requestBody.formData) {
@@ -59,7 +61,8 @@ chrome.runtime.onInstalled.addListener(() => {
 // Listen for POST requests to the ChatGPT conversation endpoint
 chrome.webRequest.onBeforeRequest.addListener(
   function (details) {
-    if (details.method === "POST") {
+    if (details.method === "POST" && details.url === CONVERSATION_URL) {
+      console.log(details);
       chrome.storage.local.get(["dailyUsage", "weeklyUsage"], (data) => {
         let dailyUsage = data.dailyUsage || {
           prompts: 0,
